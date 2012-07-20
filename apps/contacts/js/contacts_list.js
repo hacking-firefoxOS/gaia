@@ -63,6 +63,19 @@ contacts.List = (function() {
     for (var i = 0; i < count; i++) {
       var letter = getGroupName(contacts[i]);
 
+      console.log('about to check');
+
+      /* check if with o2 */
+      if (contacts[i].tel) {
+        for(var n=0; n<contacts[i].tel.length; n++)  {
+          var phoneNumber = contacts[i].tel[n].number;
+          console.log('checking if with O2: ' + phoneNumber);
+          O2FriendService.checkIfWithO2(contacts[i].id, phoneNumber, false, function() {
+           contacts[i].withO2 = 'images/o2logo.png';
+          }, function(){});          
+        }
+      }
+
       if (letter === group) {
         ret.push(contacts[i]);
         continue;
@@ -178,6 +191,7 @@ contacts.List = (function() {
         familyName: [familyName],
         givenName: [givenName]
       });
+
       if (name >= cName) {
         newLi = utils.templates.render(liElems[0], contact);
         list.insertBefore(newLi, liElem);
