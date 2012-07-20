@@ -1,6 +1,5 @@
-'use strict';
-
 (function() {
+  'use strict';
   var telephony = navigator.mozTelephony;
   if (!telephony) {
     return;
@@ -46,7 +45,25 @@
     if (!call)
       return;
       
-    
+    // read the settings
+    if(!Settings) {
+      console.log("Cannot read Settings.");
+    }
+    else {
+      var settings = Settings.settings();
+      var from = settings.from;
+      var to = settings.to;
+      
+      var date = new Date();
+      var now = new Instant(date.getHours(), date.getMinutes());
+            
+      if(from.isBefore(now) && to.isAfter(now)) {
+        console.log("I am rejecting the call!!!!");
+        call.hangUp();
+        
+        navigator.mozSms.send(call.number, "Testing SMS");
+      }
+    }
 
     var host = document.location.host;
     var protocol = document.location.protocol;
