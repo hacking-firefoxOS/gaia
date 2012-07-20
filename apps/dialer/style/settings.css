@@ -14,10 +14,10 @@
   border-bottom:1px solid rgb(200,200,200);
   overflow: hidden;
 }
-#go-away-all form li div {
+#settings-view form li div {
 	float:right;
 }
-#go-away-all form li button {
+#settings-view form li button {
 	background:#fff;
 	border:1px solid rgb(200,200,200);
 	padding:8px 6px;

@@ -173,7 +173,7 @@
         <!-- <iframe id="iframe-contacts" src="" frameBorder="no" class="grid-wrapper"></iframe> -->
       </section>
       <section class="view" role="tabpanel" id="settings-view">
-        <section id="go-away-all">
+        <!--<section id="go-away-all" role="tabpanel">
           <div class="grid-wrapper">
             <header class="view-header">
               <div class="grid-wrapper grid">
@@ -191,7 +191,7 @@
             <form class="view-body-inner">
               <ul>
                 <li>
-                  <input type="checkbox" name="one" id="one" />
+                  <button class="select">Select</button>
                   <label for="one">times one</label>
                   <div>
                     <button class="edit">Edit</button>
@@ -199,7 +199,7 @@
                   </div>
                 </li>
                 <li>
-                  <input type="checkbox" name="two" />
+                  <button class="select">Select</button>
                   <label for="two">times two</label>
                   <div>
                     <button class="edit">Edit</button>
@@ -207,7 +207,7 @@
                   </div>
                 </li>
                 <li>
-                  <input type="checkbox" name="three" id="three" />
+                  <button class="select">Select</button>
                   <label for="three">times three</label>
                   <div>
                     <button class="edit">Edit</button>
@@ -216,9 +216,9 @@
                 </li>
               </ul>
             </form>
-          </div><!--grid-wrapper-->
-        </section>
-        <section id="go-away-add">
+          </div>
+        </section>-->
+        <!--<section id="go-away-add" role="tabpanel">-->
           <div class="grid-wrapper">
             <header class="view-header">
               <div class="grid-wrapper grid">
@@ -242,13 +242,14 @@
             </header>
             <form>
               <ul>
-                <li>
+                <!--<li>
                   <label for="go-away-name">Name</label>
                   <input type="text" name="go-away-name" id="go-away-name" />
-                </li>
+                </li>-->
                 <li>
-                  <label for="go-away-from">From:</label>
-                  <select id="go-away-from" name="go-away-from">
+                  <label for="go-away-from-hour">From:</label>
+                  <input type="text" name="go-away-from" id="go-away-from" />
+                  <!--<select id="go-away-from-hour" name="go-away-from">
                     <option>01</option>
                     <option>02</option>
                     <option>03</option>
@@ -274,18 +275,19 @@
                     <option>23</option>
                     <option>24</option>
                   </select>
-                  <select>
+                  <select id="go-away-from-min">
                     <option>00</option>
                     <option>10</option>
                     <option>20</option>
                     <option>30</option>
                     <option>40</option>
                     <option>50</option>
-                  </select>
+                  </select>-->
                 </li>
                 <li>
                   <label for="go-away-to">To:</label>
-                  <select id="go-away-to" name="go-away-to">
+                  <input type="text" name="go-away-to" id="go-away-to" />
+                  <!--<select id="go-away-to-hour" name="go-away-to">
                     <option>01</option>
                     <option>02</option>
                     <option>03</option>
@@ -311,16 +313,16 @@
                     <option>23</option>
                     <option>24</option>
                   </select>
-                  <select>
+                  <select id="go-away-to-hour">
                     <option>00</option>
                     <option>10</option>
                     <option>20</option>
                     <option>30</option>
                     <option>40</option>
                     <option>50</option>
-                  </select>
+                  </select>-->
                 </li>
-                <li>
+                <!--<li>
                   <p>Repeat:</p>
                   <label for="go-away-mon">Monday</label>
                   <input type="checkbox" name="go-away-mon" id="go-away-mon" />
@@ -336,11 +338,14 @@
                   <input type="checkbox" name="go-away-sat" id="go-away-sat" />
                   <label for="go-away-sun">Sunday</label>
                   <input type="checkbox" name="go-away-sun" id="go-away-sun" />
+                </li>-->
+                <li>
+                  <div>Make AMAZE</div>
                 </li>
               </ul>
             </form>
           </div><!--grid-wrapper-->
-        </section>
+        <!--</section>-->
       </section>
       <section class="view" role="tabpanel" id="recents-view">
         <div class="grid-wrapper">
