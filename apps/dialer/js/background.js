@@ -45,6 +45,8 @@
 
     if (!call)
       return;
+      
+    
 
     var host = document.location.host;
     var protocol = document.location.protocol;
