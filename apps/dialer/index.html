@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style/dialer.css">
     <link rel="stylesheet" type="text/css" href="style/keypad.css">
     <link rel="stylesheet" type="text/css" href="style/commslog.css">
+    <link rel="stylesheet" type="text/css" href="style/settings.css">
     <link rel="resource" type="application/l10n" href="locales/locales.ini">
     <script type="application/javascript">
     // The following code loads a shared WebAPI shim from webapi.js
@@ -171,8 +172,175 @@
         <!-- <iframe id="iframe-contacts" src="" frameBorder="no" class="grid-wrapper"></iframe> -->
       </section>
       <section class="view" role="tabpanel" id="settings-view">
+        <section id="go-away-all">
+          <div class="grid-wrapper">
+            <header class="view-header">
+              <div class="grid-wrapper grid">
+                <h1 class="grid-cell grid-v-align">Go Away</h1>
+                <section class="grid-cell grid-v-align view-header-options">
+                  <div class="grid-wrapper grid">
+                    <span class="grid-cell grid-v-align">
+                      <div class="icon icon-add">
+                      </div>
+                    </span>
+                  </div>
+                </section>
+              </div>
+            </header>
+            <form class="view-body-inner">
+              <ul>
+                <li>
+                  <input type="checkbox" name="one" id="one" />
+                  <label for="one">times one</label>
+                  <div>
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+                  </div>
+                </li>
+                <li>
+                  <input type="checkbox" name="two" />
+                  <label for="two">times two</label>
+                  <div>
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+                  </div>
+                </li>
+                <li>
+                  <input type="checkbox" name="three" id="three" />
+                  <label for="three">times three</label>
+                  <div>
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+                  </div>
+                </li>
+              </ul>
+            </form>
+          </div><!--grid-wrapper-->
+        </section>
 
-
+        <section id="go-away-add">
+          <div class="grid-wrapper">
+            <header class="view-header">
+              <div class="grid-wrapper grid">
+                <section class="grid-cell grid-v-align view-header-options">
+                  <div class="grid-wrapper grid">
+                    <span class="grid-cell grid-v-align">
+                      <div class="icon icon-back">
+                      </div>
+                    </span>
+                  </div>
+                </section>
+                <h1 class="grid-cell grid-v-align">Add Go Away Time</h1>
+                <section class="grid-cell grid-v-align view-header-options">
+                  <div class="grid-wrapper grid">
+                    <span class="grid-cell grid-v-align">
+                      Done
+                    </span>
+                  </div>
+                </section>
+              </div>
+            </header>
+            <form>
+              <ul>
+                <li>
+                  <label for="go-away-name">Name</label>
+                  <input type="text" name="go-away-name" id="go-away-name" />
+                </li>
+                <li>
+                  <label for="go-away-from">From:</label>
+                  <select id="go-away-from" name="go-away-from">
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                  </select>
+                  <select>
+                    <option>00</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>40</option>
+                    <option>50</option>
+                  </select>
+                </li>
+                <li>
+                  <label for="go-away-to">To:</label>
+                  <select id="go-away-to" name="go-away-to">
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                  </select>
+                  <select>
+                    <option>00</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>40</option>
+                    <option>50</option>
+                  </select>
+                </li>
+                <li>
+                  <p>Repeat:</p>
+                  <label for="go-away-mon">Monday</label>
+                  <input type="checkbox" name="go-away-mon" id="go-away-mon" />
+                  <label for="go-away-tues">Tuesday</label>
+                  <input type="checkbox" name="go-away-tues" id="go-away-tues" />
+                  <label for="go-away-wed">Wednesday</label>
+                  <input type="checkbox" name="go-away-wed" id="go-away-wed" />
+                  <label for="go-away-thurs">Thursday</label>
+                  <input type="checkbox" name="go-away-thurs" id="go-away-thurs" />
+                  <label for="go-away-fri">Friday</label>
+                  <input type="checkbox" name="go-away-fri" id="go-away-fri" />
+                  <label for="go-away-sat">Saturday</label>
+                  <input type="checkbox" name="go-away-sat" id="go-away-sat" />
+                  <label for="go-away-sun">Sunday</label>
+                  <input type="checkbox" name="go-away-sun" id="go-away-sun" />
+                </li>
+              </ul>
+            </form>
+          </div><!--grid-wrapper-->
+        </section>
       </section>
       <section class="view" role="tabpanel" id="recents-view">
         <div class="grid-wrapper">

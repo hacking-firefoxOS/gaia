@@ -1,0 +1,30 @@
+#settings-view form {
+	overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  background: #f4f4f4;
+  color: #333;
+  text-align: left;
+}
+#settings-view form li {
+  padding: 1.4rem 2rem;
+  background-image: -moz-linear-gradient(top,#fff,#f4f4f4);	
+  font: 600 1.3rem/4rem Open Sans,Sans-serif;
+  border-bottom:1px solid rgb(200,200,200);
+  overflow: hidden;
+}
+#go-away-all form li div {
+	float:right;
+}
+#go-away-all form li button {
+	background:#fff;
+	border:1px solid rgb(200,200,200);
+	padding:8px 6px;
+
+}
+
+
+
+
+

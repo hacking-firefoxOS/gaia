@@ -40,6 +40,20 @@ ol, ul {
   opacity: 0.5;
 }
 
+.icon-add {
+  background-image: url('images/add.png');
+  height: 2rem;
+  width: 1.9rem;
+  opacity: 0.5;
+}
+
+.icon-back {
+  background-image: url('images/back.png');
+  height: 2rem;
+  width: 1.9rem;
+  opacity: 0.5;
+}
+
 .recents-filter-container {
   background: white;
 }
