@@ -1,13 +1,5 @@
 
-		function parseResponse(data) {
-			console.log(data);
-			var index = data.query.results.result.id;
-			var status = data.query.results.result.status;
 
-			if (status === '200') {
-				$('#groups-list li[id=' + index + '] figure').append('<img style="width:25px;height:25px;position:absolute;top:0px;left:-25px" src="images/o2logo.png">');
-			}
-		}
 
 
 	var O2FriendService = (function() {
@@ -25,6 +17,23 @@
 			phoneNumberHashCache = {};
 		};
 
+		var parseResponse = function(data) {
+			console.log(data);
+			var index = data.query.results.result.id;
+			var status = data.query.results.result.status;
+			// var hash = data.query/results.result.hash;   -- need hash for implementing caching
+
+			if (status === '200') {
+				addO2Indicator(index);
+				//phoneNumberHashCache[hash] = true; - enable when we get the hash passed through
+			}
+		};
+
+		var addO2Indicator = function(index) {
+			console.log('apply o2 indicator to: ' +  index);
+			$('#groups-list li[id=' + index + '] figure').append('<div style="background-color:white;padding:0.1em;position:absolute;top:0;right:0"><img style="height:0.8em;" src="images/o2logo.png"></div>');
+		};
+
 		var checkIfWithO2 = function (index, phoneNumber, isLastContact, withO2, notWithO2 ) {
 
 			// go off to O2 friends end-point and see what it says about the number - success response means with O2
@@ -37,62 +46,16 @@
 			var head= document.getElementsByTagName('head')[0];
  		    var script= document.createElement('script');
  		   script.type= 'text/javascript';
-    script.src= "http://query.yahooapis.com/v1/public/yql?q=use%20%22store%3A%2F%2FUngyfD7sKSBzwBeKdvkmV2%22%20as%20O2Friends%3B%20select%20*%20FROM%20O2Friends%20WHERE%20hash%3D'"+hash+"'%20AND%20id%20%3D%20'"+ index + "'&format=json&callback=parseResponse";
+ 			   script.src= "http://query.yahooapis.com/v1/public/yql?q=use%20%22store%3A%2F%2FUngyfD7sKSBzwBeKdvkmV2%22%20as%20O2Friends%3B%20select%20*%20FROM%20O2Friends%20WHERE%20hash%3D'"+hash+"'%20AND%20id%20%3D%20'"+ index + "'&format=json&callback=O2FriendService.parseResponse";
 
-    head.appendChild(script);
-
-
-
-/*
-		if (formattedPhoneNumber === '07764359823' || formattedPhoneNumber === '07714231527') {
-			phoneNumberHashCache[hash] = true;
-			storeKeyValue('o2numbers', phoneNumberHashCache);
-			withO2(index, phoneNumber, selfIsLastContact);
-		} else {
-			phoneNumberHashCache[hash] = false;
-			storeKeyValue('o2numbers', phoneNumberHashCache);			
-		}
-
-			var xhr = new XMLHttpRequest({mozSystem: true});
-    		xhr.addEventListener('load', function(e) {
-    			console.log('load');
-    			console.log(e.target.status);
-    		});
-    		xhr.addEventListener('error', function(e) {
-    			console.log('error');
-    		});
-    		xhr.open('GET','http://friends.o2labs.co.uk/check/' + hash, true);
-    		xhr.send();
-
-
-
-				$.get('http://friends.o2labs.co.uk/check/' + hash, function(){
-					phoneNumberHashCache[hash] = true;
-					storeKeyValue('o2numbers', phoneNumberHashCache);
-					withO2(index, phoneNumber, selfIsLastContact);
-				}).error(function(error) {
-					if (error.status > 0) {
-						console.log('not an o2 number: [' + error.status + '] : ' + formattedPhoneNumber);
-						phoneNumberHashCache[hash] = false; 
-						storeKeyValue('o2numbers', phoneNumberHashCache);
-					} else {
-						console.log('network error checking o2 number: [' + error.status + '] : ' + formattedPhoneNumber);
-					}
-
-					if (notWithO2) {
-						notWithO2(index, phoneNumber, selfIsLastContact);
-					}
-				});
-
-*/
+			    head.appendChild(script);
 
 			} else {
 				if (phoneNumberHashCache[hash] === true) {
 					console.log('found o2 number [by cache]: ' + formattedPhoneNumber);
-					withO2(index, phoneNumber, selfIsLastContact);
+					addO2Indicator(index);
 				} else {
 					console.log('not an o2 number [by cache]: ' + formattedPhoneNumber);
-					notWithO2(index, phoneNumber, selfIsLastContact);
 				}
 			}
 		};
@@ -156,6 +119,7 @@
 
 		return {
 			checkIfWithO2 : checkIfWithO2,
-			clearCache : clearCache
+			clearCache : clearCache,
+			parseResponse : parseResponse
 		};
 	}());
