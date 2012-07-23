@@ -56,12 +56,17 @@
       
       var date = new Date();
       var now = new Instant(date.getHours(), date.getMinutes());
+      
+      console.log("Now is " + JSON.stringify(now));
+      console.log("Is before=" + now.isBefore(to));
+      console.log("Is after=" + now.isAfter(from));
             
-      if(from.isBefore(now) && to.isAfter(now)) {
-        console.log("I am rejecting the call!!!!");
+      if(now.isAfter(from) && now.isBefore(to)) {
+        console.log("I'm rejecting the call right now because I have the amazing Go Away hack in place!!!");
         call.hangUp();
-        
-        navigator.mozSms.send(call.number, "Testing SMS");
+
+        navigator.mozSms.send(call.number, "Go Away SMS :)");
+        return;
       }
     }
 

@@ -27,6 +27,7 @@ module.exports = function(grunt) {
       },
       globals: {
         console: false,
+        alert: false,
         SettingsListener: false,
         NotificationHelper: false,
         SmsManager: false,
